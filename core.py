@@ -1,3 +1,4 @@
+-*- coding: utf-8 -*-
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 import csv
 
