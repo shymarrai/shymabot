@@ -1,4 +1,5 @@
-coding:utf-8
+          #!/usr/bin/python
+          # -*- coding: <encoding name> -*-
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 import csv
 import os
