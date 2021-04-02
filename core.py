@@ -89,7 +89,7 @@ def main():
     dispatcher.add_handler(MessageHandler(Filters.command, unknown))
     #PORT = process.env.PORT or '8080'
     # Start the Bot
-    #updater.start_polling()
+    updater.start_polling()
     # updater.start_webhook(listen="0.0.0.0",
     #                      port=PORT,
     #                      url_path=TELEGRAM_TOKEN)
@@ -122,14 +122,18 @@ def read_people(base, inst):
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
-    #PORT = int(os.environ.get('PORT', 5000))
     #port = int(os.environ.get("PORT", 5000))
+    #app.run(host='0.0.0.0', port=port)
+    #PORT = int(os.environ.get('PORT', 5000))
     #app.run(host='0.0.0.0', port=port, url_path=TELEGRAM_TOKEN)
-    #updater.start_webhook(listen="0.0.0.0",
-     #                     port=port,
-     #                     url_path=TELEGRAM_TOKEN)
+    port = int(os.environ.get("PORT", 5000))
+    
+    updater.start_webhook(listen="0.0.0.0",
+                          port=port,
+                          url_path=TELEGRAM_TOKEN)
     print("press CTRL + C to cancel.")  # INICIA O PROGRAMA
+    
 
-    main()
+    return main()
+
+    
