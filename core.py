@@ -81,9 +81,9 @@ def main():
     # ATRIBUI O COMANDO /https À FUNÇÃO http_cats CUJO A FUNÇÃO É RETORNAR O MEME
     # VERIFICA SE RECONHECO O COMANDO /
     dispatcher.add_handler(MessageHandler(Filters.command, unknown))
-    PORT = process.env.PORT or '8080'
+    #PORT = process.env.PORT or '8080'
     # Start the Bot
-    updater.start_polling()
+    #updater.start_polling()
     # updater.start_webhook(listen="0.0.0.0",
     #                      port=PORT,
     #                      url_path=TELEGRAM_TOKEN)
