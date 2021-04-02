@@ -89,9 +89,9 @@ def main():
                           url_path=TELEGRAM_TOKEN)
 
 
-updater.bot.setWebhook('https://shymabot.herokuapp.com/' + TELEGRAM_TOKEN)
+    updater.bot.setWebhook('https://shymabot.herokuapp.com/' + TELEGRAM_TOKEN)
 
-updater.idle()
+    updater.idle()
 
 
 def read_people(base, inst):
