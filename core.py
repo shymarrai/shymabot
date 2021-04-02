@@ -1,9 +1,15 @@
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 import csv
 import os
+from flask import Flask
 
 from conf.settings import TELEGRAM_TOKEN
+
+
+app = Flask(__name__)
+
 base = "./base/BASE.csv"
+
 
 
 def start(update, context):
@@ -116,13 +122,14 @@ def read_people(base, inst):
 
 
 if __name__ == "__main__":
-    print("press CTRL + C to cancel.")  # INICIA O PROGRAMA
-
-    #PORT = int(os.environ.get('PORT', 5000))
     port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+    #PORT = int(os.environ.get('PORT', 5000))
+    #port = int(os.environ.get("PORT", 5000))
     #app.run(host='0.0.0.0', port=port, url_path=TELEGRAM_TOKEN)
-    updater.start_webhook(listen="0.0.0.0",
-                          port=port,
-                          url_path=TELEGRAM_TOKEN)
+    #updater.start_webhook(listen="0.0.0.0",
+     #                     port=port,
+     #                     url_path=TELEGRAM_TOKEN)
+    print("press CTRL + C to cancel.")  # INICIA O PROGRAMA
 
     main()
