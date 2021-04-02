@@ -3,7 +3,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 import csv
 import os
 
-from conf.settings import TELEGRAM_TOKEN
+TELEGRAM_TOKEN = '1663679333:AAFr0l5wf1fU45mjVXqx_zJBYLFaeMf5hnI'
 base = "./base/BASE.csv"
 
 
