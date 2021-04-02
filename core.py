@@ -84,12 +84,12 @@ def main():
     # VERIFICA SE RECONHECO O COMANDO /
     dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
+    PORT = process.env.PORT | |'8080'
     # Start the Bot
     # updater.start_polling()
     updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
+                          port=PORT,
                           url_path=TELEGRAM_TOKEN)
-
 
     updater.bot.setWebhook('https://shymabot.herokuapp.com/' + TELEGRAM_TOKEN)
 
