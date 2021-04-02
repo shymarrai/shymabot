@@ -89,15 +89,17 @@ def main():
     dispatcher.add_handler(MessageHandler(Filters.command, unknown))
     #PORT = process.env.PORT or '8080'
     # Start the Bot
+    
+    updater.start_polling()
     port = int(os.environ.get("PORT", 5000))
     updater.start_webhook(listen="0.0.0.0",
                           port=PORT,
                           url_path=TELEGRAM_TOKEN)
 
     updater.bot.setWebhook('https://shymabot.herokuapp.com/' + TELEGRAM_TOKEN)
-
     updater.idle()
-    updater.start_polling()
+
+
 
 def read_people(base, inst):
     line = []
