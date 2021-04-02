@@ -90,7 +90,7 @@ def main():
     #PORT = process.env.PORT or '8080'
     # Start the Bot
     
-    #updater.start_polling()
+    updater.start_polling()
 
     updater.idle()
 
