@@ -90,7 +90,7 @@ def main():
     #PORT = process.env.PORT or '8080'
     # Start the Bot
     
-    updater.start_polling()
+    #updater.start_polling()
     port = int(os.environ.get("PORT", 5000))
     updater.start_webhook(listen="0.0.0.0",
                           port=PORT,
