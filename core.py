@@ -1,5 +1,3 @@
-          #!/usr/bin/python
-          # -*- coding: <encoding name> -*-
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 import csv
 import os
@@ -83,15 +81,14 @@ def main():
     # ATRIBUI O COMANDO /https À FUNÇÃO http_cats CUJO A FUNÇÃO É RETORNAR O MEME
     # VERIFICA SE RECONHECO O COMANDO /
     dispatcher.add_handler(MessageHandler(Filters.command, unknown))
-
-    PORT = process.env.PORT | |'8080'
+    PORT = process.env.PORT or '8080'
     # Start the Bot
-    # updater.start_polling()
-    updater.start_webhook(listen="0.0.0.0",
-                          port=PORT,
-                          url_path=TELEGRAM_TOKEN)
+    updater.start_polling()
+    # updater.start_webhook(listen="0.0.0.0",
+    #                      port=PORT,
+    #                      url_path=TELEGRAM_TOKEN)
 
-    updater.bot.setWebhook('https://shymabot.herokuapp.com/' + TELEGRAM_TOKEN)
+    #updater.bot.setWebhook('https://shymabot.herokuapp.com/' + TELEGRAM_TOKEN)
 
     updater.idle()
 
@@ -121,5 +118,11 @@ def read_people(base, inst):
 if __name__ == "__main__":
     print("press CTRL + C to cancel.")  # INICIA O PROGRAMA
 
-    PORT = int(os.environ.get('PORT', 5000))
+    #PORT = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get("PORT", 5000))
+    #app.run(host='0.0.0.0', port=port, url_path=TELEGRAM_TOKEN)
+    updater.start_webhook(listen="0.0.0.0",
+                          port=port,
+                          url_path=TELEGRAM_TOKEN)
+
     main()
