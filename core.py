@@ -1,6 +1,6 @@
-coding=utf-8
 from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 import csv
+import os
 
 from conf.settings import TELEGRAM_TOKEN
 base = "./base/BASE.csv"
@@ -77,13 +77,21 @@ def main():
     dispatcher.add_handler(CommandHandler("update", update))
     echo_handler = MessageHandler(Filters.text & (~Filters.command), start)
     dispatcher.add_handler(echo_handler)
-    # dispatcher.add_handler(CommandHandler("http", http_cats))           #ATRIBUI O COMANDO /https À FUNÇÃO http_cats CUJO A FUNÇÃO É RETORNAR O MEME
+    # dispatcher.add_handler(CommandHandler("http", http_cats))
+    # ATRIBUI O COMANDO /https À FUNÇÃO http_cats CUJO A FUNÇÃO É RETORNAR O MEME
     # VERIFICA SE RECONHECO O COMANDO /
     dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
-    updater.start_polling()
+    # Start the Bot
+    # updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TELEGRAM_TOKEN)
 
-    updater.idle()
+
+updater.bot.setWebhook('https://shymabot.herokuapp.com/' + TELEGRAM_TOKEN)
+
+updater.idle()
 
 
 def read_people(base, inst):
@@ -110,4 +118,6 @@ def read_people(base, inst):
 
 if __name__ == "__main__":
     print("press CTRL + C to cancel.")  # INICIA O PROGRAMA
+
+    PORT = int(os.environ.get('PORT', 5000))
     main()
