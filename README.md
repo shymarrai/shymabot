@@ -1,4 +1,4 @@
-# shymabot
+# shymabot 🤖
 
 Bot para Telegram com intuito de servir assistencia aos eletrcistas de campo que prestam serviços a conssecionária de energia do Rio de Janeiro,
 com o número do aparelho do cliente fornecendo assim diversas informações como endereço, medidor, instalação, débito, nome do cliente e cadastro.
